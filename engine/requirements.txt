@@ -1,0 +1,10 @@
+pypdfium2>=5.0
+pikepdf>=9.0
+reportlab>=4.0
+fonttools>=4.50
+numpy
+scipy
+opencv-python-headless
+Pillow
+pytest
+python-docx>=1.1

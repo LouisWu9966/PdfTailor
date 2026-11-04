@@ -1,0 +1,45 @@
+<Window x:Class="PdfTailor.PreviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="輸出前預覽" Width="1240" Height="860" MinWidth="820" MinHeight="560"
+        Background="#0B111B" WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+        PreviewKeyDown="OnKey">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#0F1724" BorderBrush="#1E2B40" BorderThickness="0,0,0,1" Padding="20,14">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Left">
+                    <TextBlock Text="確認修改後的結果" FontSize="17" FontWeight="SemiBold"/>
+                    <TextBlock x:Name="Summary" Foreground="{StaticResource MutedInkBrush}" FontSize="12" Margin="0,4,0,0"/>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="檢視" Foreground="{StaticResource MutedInkBrush}" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                    <ComboBox x:Name="ModeBox" Width="150" SelectionChanged="OnModeChanged">
+                        <ComboBoxItem Content="左右並排" Tag="side" IsSelected="True"/>
+                        <ComboBoxItem Content="只看修改後" Tag="after"/>
+                        <ComboBoxItem Content="只看原始" Tag="before"/>
+                    </ComboBox>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <StackPanel x:Name="PagesPanel" Margin="20"/>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Background="#0F1724" BorderBrush="#1E2B40" BorderThickness="0,1,0,0" Padding="20,12">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Content="返回修改" Style="{StaticResource GhostButton}" Click="OnBack" Padding="18,10"/>
+                    <Button Content="確定輸出" Style="{StaticResource PrimaryButton}" Click="OnConfirm" Margin="10,0,0,0"/>
+                </StackPanel>
+                <TextBlock x:Name="NotesText" Foreground="#F5D48A" FontSize="12" TextWrapping="Wrap" VerticalAlignment="Center" Margin="0,0,20,0"/>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>

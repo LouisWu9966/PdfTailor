@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+publish/
+dist/
+build/
+*.spec.bak
+release-log.txt
+bin/
+obj/
+.vs/
+.venv-build/
+engine/build-engine-log.txt
+engine/*.spec
+
+_sync/

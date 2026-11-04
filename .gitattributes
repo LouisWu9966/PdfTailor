@@ -1,2 +1,6 @@
-# Auto detect text files and perform LF normalization
 * text=auto
+*.cmd text eol=crlf
+*.cs text eol=crlf
+*.xaml text eol=crlf
+*.csproj text eol=crlf
+*.py text eol=lf
